@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anmelden</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        *{
+    margin: 0;
+    padding: 0;
+}
+html{
+    height: 100%;
+}
+body{
+    background: radial-gradient(#33383f, rgb(42,47,53));
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+form{
+    height: 425px;
+    width: 500px;
+    padding: 40px;
+    border-radius: 8px;
+    background-color: #222831;
+    box-shadow: 4px 4px 1px rgba(0,0,0,0.404);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+h1{
+    color: #fff;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 38px;
+    background-image: linear-gradient(to right, rgb(162,0,255),rgb(74,15,236));
+    background-size: 100% 4px;
+    background-position: bottom;
+    background-repeat: no-repeat; 
+    line-height: 60px;
+}
+.inputs_container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+input{
+    height: 64px;
+    width: 240px;
+    margin: 15px;
+    padding: 0 25px;
+    border-radius: 10px;
+    border: none;
+    background-color: #373e49;
+    box-shadow: 3px 3px 6px rgba(0,0,0,0.212);
+    color: #fff;
+    font-size: 20px;
+    transition: 0,2s;
+}
+input:hover{
+    background-color: #47505f;
+}
+input:focus{
+    outline: none;
+    background-color: #47505f;
+    width: 265px;
+}
+input::placeholder{
+    color: rgb(150, 161, 190);
+}
+button{
+    height: 64px;
+    width: 140px;
+    border-radius: 1000px;
+    border: none;
+    color: #fff;
+    font-family: sans-serif;
+    font-size: 22px;
+    background: linear-gradient(to right, rgb(162,0,255),rgb(74, 15, 236));
+}
+button:hover{
+    width:  200px;
+}
+button:focus{
+    outline: none;
+    width: 200px;
+}
+@media(max-width: 650px){
+    form{
+        height: 100%;
+        width: 100%;
+        justify-content: center;
+    }
+    .inputs_container{
+        margin: 80px;
+    }
+    h1{
+        font-size: 32px;
+    }
+}
+    </style>
+</head>
+<body>
+
+    <form action="index.php" method="post">
+        <h1>Anmelden</h1>
+        <div class="inputs_container">
+            <input type="text" placeholder="Benutzername" name="username" autocomplete="off">
+
+            <input type="text" placeholder="Benutzername oder Email" name="username_email" autocomplete="off">
+
+            <input type="password" placeholder="Passwort" name="password" autocomplete="off">
+        </div>
+        <button name="submit"><a href="https://drive.google.com/file/d/1vzDUiVnJZO83gxstRnTr6ecBoWk4NGCq/view?usp=share_link">Anmelden</a></button>
+    </form>
+
+    <script>
+        // JavaScript-Code für das Anmeldeformular
+      const form = document.getElementById('login-form');
+      const button = document.getElementById('login-button');
+      
+      form.addEventListener('submit', (event) => {
+        event.preventDefault();
+      
+        const username = form.elements.username.value;
+        const password = form.elements.password.value;
+      
+        if (username === 'Eugen' && password === 'Test1234') {
+          button.setAttribute('disabled', true);
+          button.setAttribute('value', 'Anmeldung läuft...');
+      
+          // Hier könntest du eine Anfrage an deinen Server senden, um die
+          // Anmeldeinformationen zu überprüfen und dann den Benutzer anmelden.
+          // Im Beispiel wird der Benutzer einfach nach 2 Sekunden weitergeleitet.
+          setTimeout(() => {
+            //form.submit();
+            window.location.href = 'main.html'
+          }, 2000);
+        } else {
+          alert('Falscher Benutzername oder Passwort!');
+        }
+      });      
+      </script>
+</body>
+</html>
